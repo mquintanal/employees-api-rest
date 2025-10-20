@@ -1,0 +1,88 @@
+{
+  "info": {
+    "name": "Employees API Collection",
+    "description": "REST API for managing employees (CRUD).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_id": "employees-api-collection"
+  },
+  "item": [
+    {
+      "name": "Get all employees",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "employees"]
+        },
+        "description": "Retrieves all registered employees."
+      }
+    },
+    {
+      "name": "Create employees (bulk insert)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "[\n  {\n    \"firstName\": \"Juan\",\n    \"secondName\": \"Carlos\",\n    \"lastNamePaternal\": \"Hernandez\",\n    \"lastNameMaternal\": \"Lopez\",\n    \"age\": 29,\n    \"gender\": \"MALE\",\n    \"birthDate\": \"15-08-1996\",\n    \"position\": \"Backend Engineer\"\n  },\n  {\n    \"firstName\": \"Ana\",\n    \"lastNamePaternal\": \"Lopez\",\n    \"lastNameMaternal\": \"Perez\",\n    \"age\": 28,\n    \"gender\": \"FEMALE\",\n    \"birthDate\": \"05-05-1997\",\n    \"position\": \"QA Analyst\"\n  }\n]"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "employees"]
+        },
+        "description": "Creates one or more employees in a single request."
+      }
+    },
+    {
+      "name": "Update employee (PATCH)",
+      "request": {
+        "method": "PATCH",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"position\": \"QA Lead\",\n  \"age\": 29\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "employees", "1"]
+        },
+        "description": "Partially updates an employee by ID."
+      }
+    },
+    {
+      "name": "Delete employee",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Accept", "value": "application/json" }
+        ],
+        "url": {
+          "raw": "http://localhost:8080/api/v1/employees/1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["api", "v1", "employees", "1"]
+        },
+        "description": "Deletes an employee by ID."
+      }
+    }
+  ]
+}
