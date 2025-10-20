@@ -286,6 +286,10 @@ Las pruebas cubren:
 
 ---
 
+## 🗄 Colección de Postman
+Se encuentra en la raíz de este repositorio en el archivo: Employees_API_Collection.json
+
+
 ## 🧱 Versionado
 
 | Campo | Valor |
